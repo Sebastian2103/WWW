@@ -1,3 +1,6 @@
+<?php
+    error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,13 +11,23 @@
     </head>
     <body>
         <div id="navbar">
-            <a href="html/history.html">Historia serii</a>
+            <a href="index.php?idp=">Strona Główna</a>
+            <a href="index.php?idp=history">Historia serii</a>
             <a href="">Jednostki</a>
             <a href="">Bohaterowie</a>
             <a href="">Zamki</a>
         </div>
         <?php 
-        include("glowna.html")
+        $strona = '';
+        if($_GET['idp']=='')
+        {$strona = './html/glowna.html';}
+        if($_GET['idp']=='history')
+        {$strona = './html/history.html';}
+
+        if(file_exists($strona))
+        {
+            include($strona);
+        }
         ?>
     </body>
 </html>

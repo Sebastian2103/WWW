@@ -10,6 +10,10 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
+		<?php
+			include('cfg.php');
+			include('showpage.php')
+		?>
         <div id="navbar">
             <a href="index.php?idp=">Strona Główna</a>
             <a href="index.php?idp=history">Historia serii</a>
@@ -18,16 +22,19 @@
             <a href="">Zamki</a>
         </div>
         <?php 
-        $strona = '';
-        if($_GET['idp']=='')
-        {$strona = './html/glowna.html';}
-        if($_GET['idp']=='history')
-        {$strona = './html/history.html';}
-
-        if(file_exists($strona))
-        {
-            include($strona);
-        }
+		if($_GET['idp']=='')
+		{PokazPodstrone(1);}
+		
+       // $strona = '';
+        //if($_GET['idp']=='')
+       // {$strona = './html/glowna.html';}
+       // if($_GET['idp']=='history')
+       // {$strona = './html/history.html';}
+//
+      //  if(file_exists($strona))
+      //  {
+      //      include($strona);
+      //  }
         ?>
     </body>
 </html>
